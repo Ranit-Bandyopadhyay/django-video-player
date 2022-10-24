@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {
+    box-sizing: border-box;
+    }
+    /* Create two equal columns that floats next to each other */
+    .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid green;
+    height: 600px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+
+<div class="container mt-5">
+  <div class="column" style="background-color:#aaa;">
+    <h2 style="font-family:Chaparral Pro Light;">Insert video and audio files here</h2>
+    
+    {% for x in data %}
+    <video class="embed-responsive embed-responsive-16by9" controls="controls" >
+    <source src="{{x.my_file.url}}" type="video/mp4" />
+    </video>
+    {% endfor %}
+  
+
+  </div>
+  <div class="column" style="height:600px;width:555px;border:2px solid green(45, 244, 15);font:12px/26px Georgia, Garamond, Serif;overflow:auto">
+    <h2 style="font-family:Chaparral Pro Light;">Insert text files here</h2>
+    <table class="table">
+      <tbody>
+        {% for d in datad %}
+        <tr>
+          <th>{{forloop.counter}}</th>
+          <th>{{d.file_named}}</th>
+          <th><a  href="{{d.my_filed.url}}">{{d.my_filed}}</a></th>
+          <th >{{d.timestampd}}</th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
